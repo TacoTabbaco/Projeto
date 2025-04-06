@@ -1,6 +1,6 @@
 #include "ortografia.h"
 
-void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErradas, offsetPalavrasDicio *dicio, int TamanhoDicionario, int valorA, int valorN) {
+void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErradas, offsetPalavrasDicio *dicio, int TamanhoDicionario, int valorA, int valorN, FILE *ficheiroSaida) {
     int offsetDesejado = valorN;
     int maximoAlternativas = valorA;
 
@@ -27,7 +27,7 @@ void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErr
             int count = 0;
             for (int j = 0; j < TamanhoDicionario; j++) {
                 if (dicio[j].offset <= offsetDesejado) {
-                    printf("%s %d\n", dicio[j].palavraDoDicio, dicio[j].offset);
+                    fprintf(ficheiroSaida, "%s %d\n", dicio[j].palavraDoDicio, dicio[j].offset);
                     count++;
                 }
                 if (count >= maximoAlternativas) {

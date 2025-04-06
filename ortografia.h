@@ -5,6 +5,7 @@
 #include <getopt.h>
 #define TRUE 1
 #define FALSE 0
+#define INT_MAX 256
 
 
 typedef struct {
@@ -27,6 +28,13 @@ int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numer
 int compararPalavras(char palavras[], char **words, int tamanhoDicionario, char ***palavrasErradas, int *nPalavrasErradas);
 
 void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErradas, offsetPalavrasDicio *dicio, int TamanhoDicionario, int valorA, int valorN);
+
+char* encontrarCorrecao(const char *palavra, char **words, int tamanhoDicionario, int offsetMaximo);
+
+char* corrigirFrase(const char *fraseOriginal, char **words, int tamanhoDicionario, int offsetMaximo);
+
+int compararPalavrasModo3(char palavras[], char **words, int tamanhoDicionario, char ***palavrasErradas, int *nPalavrasErradas, int offsetMaximo);
+/*Alteracao da funcao compararPalavras para poder trabalhar com as correcoes*/
 
 void funcaochamafuncao(int valorM, int valorA, int valorN, char **words, int tamanhoDicionario, char *dicionario, char *frase, char *fraseCopia, int numeroLinhas, FILE *ficheiroEntrada, int *nPalavrasErradas, offsetPalavrasDicio *dicio, char ***palavrasErradas, FILE *ficheiroSaida);
 /*Esta função deve chamar a função de modo de funcionamento 1

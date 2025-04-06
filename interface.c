@@ -30,7 +30,7 @@ void funcaomodo1(char **words, int tamanhoDicionario, char *dicionario, char *fr
             free(fraseCopia);
             break;
         }
-        separarPalavras(frase, words, tamanhoDicionario, numeroLinhas, fraseCopia, palavrasErradas, nPalavrasErradas);
+        separarPalavras(frase, words, tamanhoDicionario, numeroLinhas, fraseCopia, palavrasErradas, nPalavrasErradas, ficheiroSaida);
         free(fraseCopia);
     }
 
@@ -43,7 +43,7 @@ void funcaomodo1(char **words, int tamanhoDicionario, char *dicionario, char *fr
 void funcaomodo2(char **words, int tamanhoDicionario, char *dicionario, char *frase, char *fraseCopia, int numeroLinhas, FILE *ficheiroEntrada, int *nPalavrasErradas, char ***palavrasErradas, FILE *ficheiroSaida, offsetPalavrasDicio *dicio, int valorA, int valorN)
 {
     funcaomodo1(words, tamanhoDicionario, dicionario, frase, fraseCopia, numeroLinhas, ficheiroEntrada, nPalavrasErradas, palavrasErradas, ficheiroSaida);
-    printf("Palavras erradas: %d\n", *nPalavrasErradas);
+    fprintf(ficheiroSaida, "Palavras erradas: %d\n", *nPalavrasErradas);
     if (nPalavrasErradas != 0)
     {
         palavrasAlternativas(*palavrasErradas, words, *nPalavrasErradas, dicio, tamanhoDicionario, valorA, valorN);
@@ -62,7 +62,6 @@ void funcaomodo2(char **words, int tamanhoDicionario, char *dicionario, char *fr
         dicio = NULL;
     }
 }
-
 
 void funcaochamafuncao(int valorM, int valorA, int valorN, char **words, int tamanhoDicionario, char *dicionario, char frase[300], char fraseCopia[300], int numeroLinhas, FILE *ficheiroEntrada, int *nPalavrasErradas, offsetPalavrasDicio *dicio, char ***palavrasErradas, FILE *ficheiroSaida)
 {
