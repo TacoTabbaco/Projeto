@@ -6,7 +6,6 @@ int main(int argc, char *argv[]) {
     char *fraseCopia = NULL;
     char **words = NULL;
     int numeroLinhas = 0;
-    char *nomeficheiro = "words";
     char **palavrasErradas = NULL;
     int nPalavrasErradas = 0;
     offsetPalavrasDicio *dicio = NULL;
@@ -109,7 +108,7 @@ int main(int argc, char *argv[]) {
                 break;
             case 'o':
             // Nome do ficheiro de saida, em alternativa a stdout (correcoes output)
-                ficheiroSaida = fopen(optarg, "w+");
+                ficheiroSaida = fopen(optarg, "a");
                 if (ficheiroSaida == NULL)
                 {
                     return EXIT_FAILURE;
@@ -120,8 +119,6 @@ int main(int argc, char *argv[]) {
                 dicionario = optarg;
                 break;
             case 'a':
-            
-
             // O nr maximo de alternativas com cada erro ortografico
                 valorA = atoi(optarg);
                 if (valorA < 0)
@@ -130,7 +127,6 @@ int main(int argc, char *argv[]) {
                 }
                 break;
             case 'n':
-            
             // O nr maximo de diferencas com cada erro ortografico
                 valorN = atoi(optarg);
                 if (valorN < 0)

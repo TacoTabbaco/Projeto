@@ -56,7 +56,7 @@ int compararPalavras(char palavras[], char **words, int tamanhoDicionario) {
 }
 
 // Separar as palavras da frase
-int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numeroLinhas, char fraseCopia[]) {
+int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numeroLinhas, char fraseCopia[], FILE *ficheiroSaida) {
     char sinalSeparação[] = " -\t\r\n/";
     char *palavras = strtok(frase, sinalSeparação);
     int erro = 0;
@@ -66,10 +66,10 @@ int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numer
         // printf("%s\n", palavras);
         if (compararPalavras(palavras, words, tamanhoDicionario) == 0) {
             if (erro == 0) {
-                printf("%d: %s", numeroLinhas, fraseCopia);
+                fprintf(ficheiroSaida, "%d: %s", numeroLinhas, fraseCopia);
                 erro = 1;
             }
-            printf("Erro na palavra \"%s\"\n", palavras);
+            fprintf(ficheiroSaida, "Erro na palavra \"%s\"\n", palavras);
         }
         palavras = strtok(NULL, sinalSeparação);
     }

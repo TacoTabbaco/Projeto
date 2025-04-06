@@ -33,13 +33,6 @@ void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErr
                 if (count >= maximoAlternativas) {
                     break;
                 }
-            }
-        
-        
-        
-        
+            }   
     }
-
-    
-    
 }

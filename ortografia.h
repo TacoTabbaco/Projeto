@@ -14,13 +14,17 @@ typedef struct {
 
 
 void abrirDicionario(char ***words, int *tamanhoDicionario, char nomeficheiro[]);
+/*Esta função abre o dicionario e aloca cada palavra no seu
+respetivo espaço num array*/
 
 void formalizarPalavras(char palavras[]);
+/*Esta função retira qualquer "imperfeição" de uma palavra
+ex.: ! ?*/
 
-int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numeroLinhas, char fraseCopia[], char ***palavrasErradas, int *nPalavrasErradas);
+int separarPalavras(char frase[], char **words, int tamanhoDicionario, int numeroLinhas, char fraseCopia[], char ***palavrasErradas, int *nPalavrasErradas, FILE *ficheiroSaida);
+/*Esta função separa */
 
 int compararPalavras(char palavras[], char **words, int tamanhoDicionario, char ***palavrasErradas, int *nPalavrasErradas);
-
 
 void palavrasAlternativas(char **palavrasErradas, char **words, int nPalavrasErradas, offsetPalavrasDicio *dicio, int TamanhoDicionario, int valorA, int valorN);
 
@@ -37,3 +41,5 @@ void funcaomodo2(char **words, int tamanhoDicionario, char *dicionario, char *fr
 modo de funcionamento 2*/
 
 void ajuda();
+/*Esta função escreve os comandos apropriados para se poder
+usar o programa*/
